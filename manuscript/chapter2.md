@@ -1,0 +1,39 @@
+# ¿Cómo se ve DevOps?
+Si vamos a concentrarnos en el rol de Operaciones de TI en una organización de DevOps, resulta útil pensar en lo que realmente es un proyecto de DevOps. ¿Qué es exactamente lo que provee la operación de TI? ¿Qué capacidades necesita la organización? Vamos a tomar un aspecto de alto nivel en un proyecto al estilo DevOps, y todo lo que esto implica, y vamos a profundizar en varias partes de esto en el resto del libro.
+
+**SIN EMBARGO**, quiero enfatizar que usted no puede lograr DevOps completamente dentro del equipo de Operaciones. _DevOps es pensar en todo el sistema_ (una frase muy Deming), desde las personas que escriben el código hasta las personas que utilizan dicho código, y todo lo demás. El equipo de Operaciones tiene una contribución, al igual que muchos otros equipos y roles.
+
+Hay _un montón de gente hablando de DevOps_ en estos días, por lo que también hay un montón de opiniones diferentes sobre cómo debe funcionar un "proyecto DevOps". En la búsqueda de una explicación concisa y de alto nivel, me quedé bastante impresionado con [una descripción de cómo Spotify](https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/) organiza sus esfuerzos de TI. Aunque gran parte de esa descripción se centra en cómo se organizan los desarrolladores de software, lo interesante para mí fue que el trabajo principal de sus operaciones de TI era crear unidades de automatización para que los desarrolladores pudieran implementar su código directamente en sus ambientes de QA y producción. Las operaciones, en otras palabras, facilitaron una conexión segura y administrada entre desarrolladores y usuarios de aplicaciones (servicios). Ops más o menos arregló las cosas de modo que el mismo Ops "salió del camino", dentro del marco de gestión y control de la actividad.
+
+Este es el corazón de DevOps, y si esto hace que su corazón lata más fuerte, entonces tiene que recordar que DevOps es una filosofía muy diferente de lo que ha hecho antes. En el pasado, los equipos de  QA y de Operaciones eran generalmente equipos separados dentro de TI. El código pasó de los desarrolladores a QA y viceversa, hasta que QA verificó y aprobó, para que luego  Operaciones lo llevará a los ambientes de producción. La intención de tener estas "puertas" entre roles era asegurarse de que nadie hiciera algo que no se suponía que debía hacer, como desplegar código no aprobado en los ambientes de producción. Esto creó varios problemas:
+
+* Los desarrolladores se volvieron perezosos. Sabían que QA estaba revisando su trabajo, por lo que  se concentraron menos en producir código de calidad. QA, a su vez, tuvo que tomar su trabajo más en serio, por lo que las organizaciones comenzaron a invertir mucho en la automatización de controles de calidad. Como resultado, la organización gastó una tonelada de tiempo y dinero permitiendo a los desarrolladores hacer sus trabajos con menor calidad. Esto no era bueno para nadie. Es evidente que las pruebas son importantes, pero el enfoque dev-versus-QA no ha sido masivamente beneficioso ni eficiente.
+
+* La organización desarrolló una actitud “anti-nosotros”, que es probablemente como su organización se comporta ahora mismo. Pero eso no es divertido. Después de todo, _se supone que todos tenemos el mismo objetivo_: ofrecer software y servicios a los usuarios, por lo que se supone que debemos estar juntos. En los peores casos, la rivalidad interdepartamental se vuelve verdaderamente tóxica, lo que lleva a que el lugar de trabajo se convierta en algo desagradable e improductivo.
+
+* Operaciones cometió algunos errores simplemente porque _ellos no escribieron el código_, y los desarrolladores tenían poco incentivo para escribir código que fuera fácil de implementar, administrar o supervisar. Los desarrolladores simplemente lanzaron el código "al otro lado del muro" y Operaciones tuvo que lidiar con él - aumentando la tensión entre los departamentos.
+
+Todo esto conspiró para crear algo que es esencialmente la antítesis de DevOps. Los lanzamientos de software son más lentos, debido a la marcha implacable del código desde desarrollo hasta QA, para finalmente llegar a producción. Operaciones, básicamente, vive en el miedo de nuevo código, porque saben poco sobre él, y este no fue necesariamente diseñado para facilitar la operación. Lanzamientos más lentos significaron más presión para empaquetar más funciones en esos lanzamientos, por lo que cada lanzamiento se convirtió en un "triunfo", que simplemente empeoró el proceso.
+
+Por el contrario, DevOps prevé la aplicación y la prestación de servicios que empujan constantemente pequeñas actualizaciones incrementales a los usuarios, con un mínimo de sobrecarga operacional. Los lanzamientos más pequeños son más fáciles de codificar y probar, y con el enfoque correcto, más seguros para empujar hacia producción de forma continua. Pero para que todo eso suceda, todos tienen que trabajar juntos. La línea entre desarrollador y operaciones tiene que ser borrosa.
+
+En un entorno de DevOps, las cosas funcionan de manera diferente. Aquí está una mirada súper simplificada:
+
+1. Los desarrolladores codifican y comprueban su código en un repositorio.
+
+2. En algún momento, el código actual del repositorio se extrae y se incorpora a una aplicación.
+
+3. Las pruebas, generalmente automatizadas y creadas por los desarrolladores, se ejecutan, incluidos los modelos individuales, las pruebas de integración e incluso las pruebas de aceptación por parte de los usuarios.
+
+4. Si las pruebas tienen éxito, la generación se implementa automáticamente en producción (o al menos en algún ciclo de implementación).
+
+5. Se recopilan los comentarios de los usuarios, alimentando la siguiente iteración del ciclo. Vuelva al paso 1
+
+Algunas partes de esto pueden ser extremadamente automatizadas, y partes - como la aceptación del usuario - todavía puede ser hecha manualmente por seres humanos. El punto es disminuir las barreras entre el codificador y el usuario. Eso no significa que no haya puntos de control a lo largo del camino – para eso son las pruebas, después de todo - pero no se pone a una parte del equipo de TI como responsable de “detener” a otra parte del equipo para que no haga algo estúpido. DevOps, como una filosofía, implica que usted confía en su equipo. Si no confía en alguien de su equipo, entonces tiene un problema de recursos humanos, y debe educarlos para poder confiar en ellos, o despedirlos y reemplazarlos con alguien de confianza. Si su empresa "nunca permitiría que el código de un desarrollador llegará a producción sin que otras 30 personas lo aprobaran primero", entonces usted no puede hacer DevOps. Eso es lo que estaba escribiendo anteriormente acerca de la gestión de buy-in que es el primer paso.
+
+La idea detrás de DevOps es, como he notado, suavizar la trayectoria entre el codificador y el usuario, de modo que las pequeñas actualizaciones incrementales de la aplicación se puedan liberar más o menos todo el tiempo. Cuando se reciben comentarios de los usuarios, los codificadores responden y luego liberan más actualizaciones.
+
+Por cierto, [aquí está una gran explicación de lo que es DevOps](http://theagileadmin.com/what-is-devops/) - y lo que no es. Es un artículo largo, pero vale la pena leerlo, y notará cuánto se necesita la administración de buy-in para que todas esas cosas funcionen.
+
+Por lo tanto, para los propósitos de este libro, necesitamos ver algunas de las cosas necesarias para hacer que el paso 4 suceda, y un poco sobre lo que se necesita en el paso 3 también. Una vez más, nos centraremos principalmente en procesos y prácticas. Definitivamente _necesitará alguna tecnología para implementarlas en la vida real_, pero las tecnologías exactas que elija dependerán de su entorno específico, por lo que vamos a mantener esto un poco más abstracto por ahora.
+

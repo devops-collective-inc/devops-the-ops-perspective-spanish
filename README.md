@@ -1,0 +1,1 @@
+"DevOps" es un término muy popular en estos días - pero ¿qué significa realmente para una persona Ops? Este libro de alto nivel intenta poner a DevOps en perspectiva con ejemplos y descripciones del mundo real.
